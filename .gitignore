@@ -1,0 +1,47 @@
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+**/.DS_Store
+
+# Log files
+logs/
+*.log
+
+# Video files (use .gif versions instead)
+*.mov
+
+# Secrets and sensitive information
+SECRETS.txt
+
+# Certificate export files (contain private keys)
+*.p12
+DeveloperIDApplication.txt
+DeveloperIDInstaller.txt
+
+# Build directories (contains large binary files)
+build/
+Build/
+Builds/*
+!Builds/.gitkeep
+
+# This should never exist
+Install/*
+
+# Running CTest makes a bunch o junk
+Testing
+
+# IDE config
+.idea
+
+# clion cmake builds
+cmake-build-debug
+cmake-build-release
+cmake-build-relwithdebinfo
+packaging/Output/*
