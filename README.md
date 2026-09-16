@@ -29,8 +29,10 @@ live input using the **Freeze Blend** control.
 ## Status
 
 Core DSP and UI are implemented and building cleanly (Standalone, AU, VST3,
-CLAP). Not yet tuned by ear in a DAW — parameter ranges and the
-shimmer/decay curves are first-pass values. No demo media yet.
+CLAP). Test suite passes (6/6 ctest targets) including a regression test for
+the editor-construction crash that hit in the bench. Not yet tuned by ear in
+a DAW — parameter ranges and the shimmer/decay curves are first-pass values.
+No demo media yet.
 
 ## Building
 

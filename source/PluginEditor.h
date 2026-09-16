@@ -18,16 +18,24 @@ private:
 
     PluginProcessor& processor;
 
+    // NOTE: sliders must be declared BEFORE their attachments. C++ constructs
+    // members in Declaration order (not init-list order), and each
+    // SliderAttachment's constructor writes into its Slider
+    // (valueFromTextFunction, etc.). If the attachment constructed first, it
+    // would write into an unconstructed Slider -> null-vtable SEGV. (This is
+    // why the boot benchmark crashed in SliderAttachment while the DSP tests,
+    // which never call createEditor, passed.)
+    juce::Slider sliderFreezeAmt;
+    juce::Slider sliderShimmer;
+    juce::Slider sliderResolution;
+    juce::Slider sliderDecay;
+
     using Attach = juce::AudioProcessorValueTreeState::SliderAttachment;
     std::unique_ptr<Attach> attachFreezeAmt;
     std::unique_ptr<Attach> attachShimmer;
     std::unique_ptr<Attach> attachResolution;
     std::unique_ptr<Attach> attachDecay;
 
-    juce::Slider sliderFreezeAmt;
-    juce::Slider sliderShimmer;
-    juce::Slider sliderResolution;
-    juce::Slider sliderDecay;
 
     juce::Label labelTitle;
     juce::Label labelSubTitle;
